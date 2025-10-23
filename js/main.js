@@ -1,11 +1,39 @@
 // Basic interactivity for the wedding site
 document.addEventListener('DOMContentLoaded', function () {
-    // Menu toggle for small screens
+    // Menu toggle for small screens — prefer class toggles and aria attributes
     const menuBtn = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
-    if (menuBtn) {
+    if (menuBtn && nav) {
+        // ensure proper aria state
+        menuBtn.setAttribute('aria-expanded', 'false');
         menuBtn.addEventListener('click', () => {
-            if (nav.style.display === 'flex') nav.style.display = 'none'; else nav.style.display = 'flex';
+            const open = nav.classList.toggle('open');
+            menuBtn.classList.toggle('active', open);
+            menuBtn.setAttribute('aria-expanded', String(open));
+            // remove any inline styles that older implementation might have left behind
+            nav.style.display = '';
+        });
+
+        // Close mobile nav automatically when window resizes above mobile breakpoint
+        window.addEventListener('resize', () => {
+            try {
+                if (window.innerWidth > 600 && nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+            } catch (e) {}
+        });
+        // Close mobile nav when a navigation link is clicked (use event delegation)
+        nav.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target && target.matches && target.matches('a')) {
+                if (nav.classList.contains('open')) {
+                    nav.classList.remove('open');
+                    menuBtn.classList.remove('active');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                }
+            }
         });
     }
 

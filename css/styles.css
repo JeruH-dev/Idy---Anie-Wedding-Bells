@@ -49,6 +49,9 @@ body {
   justify-content: space-between;
   padding: 0.75rem 1rem;
 }
+
+/* make header-inner a positioning context for the mobile dropdown */
+.header-inner { position: relative; }
 .logo {
   font-weight: 700;
   font-size: 1.1rem;
@@ -74,6 +77,17 @@ body {
   background: none;
   border: 0;
   font-size: 1.25rem;
+}
+
+/* Visual state when the menu button is active/open */
+.menu-toggle.active,
+.menu-toggle[aria-expanded="true"] {
+  background: var(--gold);
+  color: var(--color-text);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: scale(1.02);
 }
 
 /* Hero */
@@ -480,21 +494,21 @@ section h2 {
   border-top: 3px solid var(--gold);
   padding: 1rem 0;
   margin-top: 2rem;
-  display: flex;
+  display: block;
 }
 
 .footer-nav {
   align-items: center;
   display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: .5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0.75rem;
 }
 
 .footer-nav a{
     display: block;
     font-size: 1rem;
     color: var(--peach);
-    padding: 1rem 0;    
+    padding: 0.6rem 0;
 }
 
 .footer-nav a i{
@@ -509,6 +523,50 @@ section h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.footer-inner span {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.footer-socials a {
+  color: var(--peach);
+  transition: color 120ms ease;
+  gap: var(--gap);
+}
+
+.footer-socials a:hover {
+  color: var(--gold);
+}
+
+/* Footer responsive stacking for narrow screens */
+@media (max-width: 800px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 0.5rem;
+  }
+  .footer-nav {
+    grid-template-columns: 1fr;
+  }
+  .footer-socials {
+    margin-top: 0.5rem;
+  }
+  /* center social icons when footer stacks on small screens */
+  .footer-socials {
+    align-self: center;
+    text-align: center;
+  }
 }
 
 /* Responsive */
@@ -530,6 +588,10 @@ section h2 {
   .swiper-button-next {
     display: none;
   }
+  .footer-socials{
+    align-items: center;
+    justify-content: center;
+  }
 }
 @media (max-width: 600px) {
   .names {
@@ -538,8 +600,23 @@ section h2 {
   .menu-toggle {
     display: block;
   }
+  /* hide the desktop nav by default on small screens; reveal when .open exists */
   .nav {
     display: none;
+  }
+  .nav.open {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-muted);
+    padding: 0.75rem 1rem;
+    z-index: 45;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
   .hero {
     padding: 3rem 0;
@@ -555,6 +632,10 @@ section h2 {
   }
   .countdown-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-socials{
+    align-items: center;
+    justify-content: center;
   }
 }
 
