@@ -36,12 +36,12 @@ body {
 
 /* Header */
 .site-header {
-  background: rgba(255, 255, 255, 0.8);
+  background: /*rgba(255, 255, 255, 0.8)*/var(--color-muted);
   backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
   z-index: 40;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid var(--gold);
 }
 .header-inner {
   display: flex;
@@ -52,7 +52,7 @@ body {
 .logo {
   font-weight: 700;
   font-size: 1.1rem;
-  color: var(--color-text);
+  color: var(--gold);
   text-decoration: none;
 }
 .nav {
@@ -60,13 +60,14 @@ body {
   gap: var(--gap);
 }
 .nav a {
-  color: var(--color-muted);
+  color: var(--gold);
   text-decoration: none;
   padding: 0.35rem 0.5rem;
   border-radius: calc(var(--radius) - 2px);
 }
 .nav a:hover {
   background: var(--peach);
+  color: var(--color-text);
 }
 .menu-toggle {
   display: none;
@@ -475,10 +476,34 @@ section h2 {
 
 /* Footer */
 .site-footer {
-  background: #fff;
-  border-top: 1px solid #eee;
+  background: var(--color-muted);
+  border-top: 3px solid var(--gold);
   padding: 1rem 0;
   margin-top: 2rem;
+  display: flex;
+}
+
+.footer-nav {
+  align-items: center;
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: .5rem;
+}
+
+.footer-nav a{
+    display: block;
+    font-size: 1rem;
+    color: var(--peach);
+    padding: 1rem 0;    
+}
+
+.footer-nav a i{
+    padding-right: .5rem;
+}
+
+.footer-nav a:hover i{
+    color: var(--gold);
+    padding-right: 2rem;
 }
 .footer-inner {
   display: flex;
