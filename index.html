@@ -143,22 +143,22 @@
             <div class="party-grid">
                 <div class="person">
                     <img src="Images/bridesmaid1.jpg" alt="Bridesmaid 1">
-                    <h4>Favour Udoh — Maid of Honor</h4>
+                    <h4>Favour Udoh — <i>Maid of Honor</i></h4>
                     <p>Sister of the Bride</p>
                 </div>
                 <div class="person">
                     <img src="Images/groomsman1.jpg" alt="Groomsman 1">
-                    <h4>Engr. Abasiama Akai — Best Man</h4>
+                    <h4>Engr. Abasiama Akai — <i>Best Man</i></h4>
                     <p>Brother and confidant</p>
                 </div>
                 <div class="person">
                     <img src="Images/bridesmaid2.jpg" alt="Bridesmaid 2">
-                    <h4>Inemesit Iweh — Bridesmaid</h4>
+                    <h4>Inemesit Iweh — <i>Bridesmaid</i></h4>
                     <p>Travel buddy</p>
                 </div>
                 <div class="person">
                     <img src="Images/groomsman2.jpg" alt="Groomsman 2">
-                    <h4>Mr. Emmanuel Jonah — Groomsman</h4>
+                    <h4>Mr. Emmanuel Jonah — <i>Groomsman</i></h4>
                     <p>College roommate</p>
                 </div>
             </div>
@@ -178,7 +178,7 @@
             <h2>Venue & Directions</h2>
             <div class="venue-grid">
                 <div class="venue-info">
-                    <h4>Royal Nefsea International Schools — The Great Lawn</h4>
+                    <h4>Royal Nefsea International Schools — <i>The School Lawn</i> </h4>
                     <p>Uyo, NG</p>
                     <div class="directions">
                         <a class="btn"
@@ -216,7 +216,7 @@
 
                 <label>Will you attend?</label>
                 <div class="radio-row">
-                    <label><input type="radio" name="attend" value="yes" checked> Yes</label>
+                    <label><input type="radio" name="attend" value="yes" checked> Yes, I’ll be there</label>
                     <label><input type="radio" name="attend" value="no"> Sorry, can’t make it</label>
                 </div>
 
@@ -234,18 +234,36 @@
             </div>
         </section>
 
-        
+
         <!-- Registry -->
         <section id="registry" class="registry container">
             <h2>Gift Registry</h2>
-            <p>We appreciate your presence most of all. If you'd like to contribute, here are our wish lists:</p>
+            <p>
+                Your presence is the greatest gift — but if you’d like to bless us more,
+                here are a few options ❤️
+            </p>
+
             <div class="registry-links">
-                <a href="#" target="_blank" class="btn placeholder" aria-disabled="true" role="button">Amazon
-                    Registry</a>
-                <a href="#" target="_blank" class="btn placeholder" aria-disabled="true" role="button">Bed, Bath &
-                    Beyond</a>
+                <a href="https://www.amazon.com/wedding" target="_blank" rel="noopener noreferrer" class="btn">
+                    Amazon Wedding Registry
+                </a>
+
+                <a href="https://paystack.com/pay/idy-anie-wedding" target="_blank" rel="noopener noreferrer"
+                    class="btn">
+                    Send a Cash Gift
+                </a>
+
+                <a href="https://www.jumia.com.ng" target="_blank" rel="noopener noreferrer" class="btn">
+                    Jumia Gift Store
+                </a>
+
+                <a href="#" class="btn"
+                    onclick="alert('Account Name: Idy & Anie\nBank: First Bank Nigeria Plc\nAcct No: 1234567890'); return false;">
+                    Bank Transfer Details
+                </a>
             </div>
         </section>
+
     </main>
 
     <footer class=" site-footer">
@@ -258,7 +276,7 @@
             <a href="#rsvp"><i class="fas fa-arrow-right"></i>RSVP</a>
         </div>
         <div class="container footer-inner">
-            <p><span>© 2026 Idy & Anie</span> — All rights reserved</p>
+            <p><span>© 2025 Idy & Anie</span> — All rights reserved</p>
             <div class="footer-socials">
                 <a href="#" class="placeholder" aria-label="Instagram" aria-disabled="true" role="button"><i
                         class="fab fa-instagram"></i></a>
@@ -283,7 +301,18 @@
     <!-- swiper js link -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+
     <script src="js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "w11ZYMu5hFqunLeiC" // 👈 copy from EmailJS dashboard
+            });
+        })();
+    </script>
+    <script src="js/rsvp.js"></script>
 </body>
 
 </html>

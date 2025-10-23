@@ -1,14 +1,29 @@
-import React from "react";
-import RSVPandGifts from "./components/RSVPandGifts";
+import GiftRegistry from "./components/GiftRegistry";
 
 function App() {
     return (
-        <div className="App">
+        <>
             {/* Other sections */}
-            <RSVPandGifts />
-            {/* Footer or additional sections */}
-        </div>
+            <GiftRegistry />
+            {/* Footer or next section */}
+        </>
+    );
+}
+
+import RSVPForm from "./components/RSVPForm";
+
+function App() {
+    return (
+        <>
+            {/* other sections */}
+            <RSVPForm />
+            {/* other sections */}
+        </>
     );
 }
 
 export default App;
+
+
+
+

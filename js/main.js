@@ -321,48 +321,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     startCountdown();
 
-    // RSVP form handling — stores to localStorage and shows confirmation
-    const rsvpForm = document.getElementById('rsvpForm');
-    const rsvpConfirmation = document.getElementById('rsvpConfirmation');
-    const confirmText = document.getElementById('confirmText');
-    if (rsvpForm) {
-        rsvpForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const data = new FormData(rsvpForm);
-            const obj = {};
-            data.forEach((v, k) => obj[k] = v);
-            // save to localStorage as a simple backend for now
-            const saved = JSON.parse(localStorage.getItem('rsvps') || '[]');
-            obj.id = 'R' + Date.now().toString(36).toUpperCase();
-            saved.push(obj);
-            localStorage.setItem('rsvps', JSON.stringify(saved));
-            rsvpForm.reset();
-            confirmText.textContent = `Confirmation code: ${obj.id}`;
-            rsvpConfirmation.classList.remove('hidden');
-            rsvpForm.classList.add('hidden');
-        });
-    }
-
-    const form = document.getElementById("rsvpForm");
-
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const data = new FormData(form);
-        const response = await fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: { 'Accept': 'application/json' }
-        });
-
-        if (response.ok) {
-            alert("🎉 Thank you for your RSVP! We’ve received your response.");
-            form.reset();
-        } else {
-            alert("😕 Oops! Something went wrong. Please try again later.");
-        }
-    });
-
 
     // Google Calendar / ICS generation
     const addToGCal = document.getElementById('addToGCal');

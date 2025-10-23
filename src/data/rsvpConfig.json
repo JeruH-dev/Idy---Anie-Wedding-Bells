@@ -1,0 +1,34 @@
+{
+    "formspreeEndpoint": "https://formspree.io/f/myznqvoz",
+    "fields": {
+        "name": {
+            "label": "Full Name",
+            "type": "text",
+            "required": true
+        },
+        "email": {
+            "label": "Email Address",
+            "type": "email",
+            "required": true
+        },
+        "attendance": {
+            "label": "Will you attend?",
+            "type": "radio",
+            "options": [
+                "Yes, I’ll be there",
+                "Sorry, can’t make it"
+            ],
+            "required": true
+        },
+        "guests": {
+            "label": "Number of Guests",
+            "type": "number",
+            "required": false
+        },
+        "message": {
+            "label": "Leave a message",
+            "type": "textarea",
+            "required": false
+        }
+    }
+}

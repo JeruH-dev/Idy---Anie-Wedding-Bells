@@ -1,0 +1,30 @@
+{
+    "title": "Our Gift Registry",
+    "subtitle": "Your presence is the greatest gift — but if you’d like to bless us more, here are a few options ❤️",
+    "registry": [
+        {
+            "name": "Amazon Wedding Registry",
+            "description": "Shop our wish list directly on Amazon — everything ships straight to us.",
+            "url": "https://www.amazon.com/wedding",
+            "icon": "amazon"
+        },
+        {
+            "name": "Cash Gift",
+            "description": "Prefer to send a cash gift? Use our secured payment link below.",
+            "url": "https://paystack.com/pay/idy-anie-wedding",
+            "icon": "credit-card"
+        },
+        {
+            "name": "Bank Transfer",
+            "description": "Account Name: Idy & Anie\nBank: First Bank Nigeria Plc\nAcct No: 1234567890",
+            "url": "",
+            "icon": "bank"
+        },
+        {
+            "name": "Jumia Gift Store",
+            "description": "Support us by buying household essentials we’ve added to our Jumia list.",
+            "url": "https://www.jumia.com.ng",
+            "icon": "gift"
+        }
+    ]
+}

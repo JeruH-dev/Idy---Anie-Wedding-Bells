@@ -159,6 +159,12 @@ body {
   color: var(--color-text);
   border: 0;
 }
+
+.btn.primary:hover {
+  background: var(--burnt);
+  color: var(--color-foreground);
+  cursor: pointer;
+}
 .socials {
   display: flex;
   gap: 0.5rem;
