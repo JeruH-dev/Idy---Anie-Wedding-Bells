@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     menuBtn.classList.remove('active');
                     menuBtn.setAttribute('aria-expanded', 'false');
                 }
-            } catch (e) {}
+            } catch (e) { }
         });
         // Close mobile nav when a navigation link is clicked (use event delegation)
         nav.addEventListener('click', (e) => {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 // ensure layout updates (Grid needs a refresh in some cases)
-                try { gallerySwiper.update(); gallerySwiper.updateSize(); } catch (e) {}
+                try { gallerySwiper.update(); gallerySwiper.updateSize(); } catch (e) { }
             }
         } catch (e) { /* ignore if Swiper not available */ }
 
@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else if (gallerySwiper && typeof gallerySwiper.slideTo === 'function') {
                     gallerySwiper.slideTo(currentIndex);
                 }
-            } catch (e) {}
+            } catch (e) { }
         }
 
         // If Swiper later populates slides dynamically, re-wire on update
@@ -195,9 +195,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.body.style.left = '';
                         document.body.style.right = '';
                         window.scrollTo(0, bodyScrollY || 0);
-                    } catch (err) {}
+                    } catch (err) { }
                     try { modalClose.blur(); } catch (e) { }
-                    try { if (lastFocused && typeof lastFocused.focus === 'function') { lastFocused.focus({ preventScroll: true }); } } catch (e) { try { if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus(); } catch (e) {} }
+                    try { if (lastFocused && typeof lastFocused.focus === 'function') { lastFocused.focus({ preventScroll: true }); } } catch (e) { try { if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus(); } catch (e) { } }
                     // clear state
                     currentIndex = -1;
                     if (modalCaption) modalCaption.textContent = '';
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-    // NOTE: removed duplicate generic Swiper init targeting ".swiper" to avoid overriding the grid setup
+        // NOTE: removed duplicate generic Swiper init targeting ".swiper" to avoid overriding the grid setup
 
         // Prev/Next buttons
         if (modalPrev) {
@@ -232,9 +232,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.body.style.left = '';
                         document.body.style.right = '';
                         window.scrollTo(0, bodyScrollY || 0);
-                    } catch (err) {}
-                    try { if (modalClose) modalClose.blur(); } catch (e) {}
-                    try { if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus(); } catch (e) {}
+                    } catch (err) { }
+                    try { if (modalClose) modalClose.blur(); } catch (e) { }
+                    try { if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus(); } catch (e) { }
                     currentIndex = -1;
                     if (modalCaption) modalCaption.textContent = '';
                 }, 180);
@@ -259,9 +259,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.body.style.left = '';
                         document.body.style.right = '';
                         window.scrollTo(0, bodyScrollY || 0);
-                    } catch (err) {}
-                    try { if (modalClose) modalClose.blur(); } catch (err) {}
-                    try { if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus(); } catch (err) {}
+                    } catch (err) { }
+                    try { if (modalClose) modalClose.blur(); } catch (err) { }
+                    try { if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus(); } catch (err) { }
                     currentIndex = -1;
                     if (modalCaption) modalCaption.textContent = '';
                 }, 180);
@@ -343,6 +343,27 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const form = document.getElementById("rsvpForm");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            alert("🎉 Thank you for your RSVP! We’ve received your response.");
+            form.reset();
+        } else {
+            alert("😕 Oops! Something went wrong. Please try again later.");
+        }
+    });
+
+
     // Google Calendar / ICS generation
     const addToGCal = document.getElementById('addToGCal');
     const downloadIcs = document.getElementById('downloadIcs');
@@ -375,15 +396,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (addToGCal) { addToGCal.addEventListener('click', () => { const ev = buildEvent(); window.open(toGCalUrl(ev), '_blank'); }); }
     if (downloadIcs) { downloadIcs.addEventListener('click', () => { const ev = buildEvent(); const blob = new Blob([toICS(ev)], { type: 'text/calendar' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'idy-anie-wedding.ics'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000); }); }
 
-        // Prevent empty clicks on placeholder links
-        document.querySelectorAll('a.placeholder').forEach(a => {
-            a.addEventListener('click', (e) => {
-                e.preventDefault();
-                // small accessible feedback
-                a.setAttribute('aria-disabled','true');
-                // optionally show a message in the console (remove in production)
-                console.info('Placeholder link clicked; replace href with a real destination.', a);
-            });
+    // Prevent empty clicks on placeholder links
+    document.querySelectorAll('a.placeholder').forEach(a => {
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            // small accessible feedback
+            a.setAttribute('aria-disabled', 'true');
+            // optionally show a message in the console (remove in production)
+            console.info('Placeholder link clicked; replace href with a real destination.', a);
         });
+    });
 
 });

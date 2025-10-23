@@ -105,7 +105,7 @@
         </section>
 
         <!-- Gallery -->
-    <section id="gallery" class="gallery-container container">
+        <section id="gallery" class="gallery-container container">
             <h2>Photo Gallery</h2>
             <div class="gallery-swiper swiper">
                 <div class="swiper-wrapper">
@@ -181,8 +181,12 @@
                     <h4>Royal Nefsea International Schools — The Great Lawn</h4>
                     <p>Uyo, NG</p>
                     <div class="directions">
-                        <a class="btn" href="https://www.google.com/maps/place/Royal+Nefsea+International+Schools/@5.006765,7.8686803,826m/data=!3m2!1e3!4b1!4m6!3m5!1s0x1067ffd41533586b:0x4a12f7e996121d85!8m2!3d5.0067597!4d7.8712552!16s%2Fg%2F11f9xjjghr?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
-                        <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=5.0067597,7.8712552&travelmode=driving" target="_blank" rel="noopener noreferrer">Get directions</a>
+                        <a class="btn"
+                            href="https://www.google.com/maps/place/Royal+Nefsea+International+Schools/@5.006765,7.8686803,826m/data=!3m2!1e3!4b1!4m6!3m5!1s0x1067ffd41533586b:0x4a12f7e996121d85!8m2!3d5.0067597!4d7.8712552!16s%2Fg%2F11f9xjjghr?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                        <a class="btn"
+                            href="https://www.google.com/maps/dir/?api=1&destination=5.0067597,7.8712552&travelmode=driving"
+                            target="_blank" rel="noopener noreferrer">Get directions</a>
                     </div>
                     <div class="calendar-actions">
                         <button id="addToGCal" class="btn">Add to Google Calendar</button>
@@ -191,9 +195,11 @@
                 </div>
                 <div class="venue-map">
                     <!-- Public Google Maps embed (no API key required) - replace coords as needed -->
-                    <iframe
-                        src="https://www.google.com/maps?q=5.0067597,7.8712552&z=16&output=embed" width="100%" height="450" title="Royal Nefsea International Schools — Great Lawn" aria-label="Map showing Royal Nefsea International Schools" referrerpolicy="no-referrer-when-downgrade"
-                        style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps?q=5.0067597,7.8712552&z=16&output=embed" width="100%"
+                        height="450" title="Royal Nefsea International Schools — Great Lawn"
+                        aria-label="Map showing Royal Nefsea International Schools"
+                        referrerpolicy="no-referrer-when-downgrade" style="border:0;" allowfullscreen=""
+                        loading="lazy"></iframe>
                 </div>
             </div>
         </section>
@@ -201,7 +207,7 @@
         <!-- RSVP -->
         <section id="rsvp" class="rsvp container">
             <h2>RSVP</h2>
-            <form id="rsvpForm" class="rsvp-form">
+            <form id="rsvpForm" class="rsvp-form" action="https://formspree.io/f/myznqvoz" method="POST">
                 <label for="name">Full name</label>
                 <input id="name" name="name" required>
 
@@ -211,7 +217,7 @@
                 <label>Will you attend?</label>
                 <div class="radio-row">
                     <label><input type="radio" name="attend" value="yes" checked> Yes</label>
-                    <label><input type="radio" name="attend" value="no"> No</label>
+                    <label><input type="radio" name="attend" value="no"> Sorry, can’t make it</label>
                 </div>
 
                 <label for="guests">Number of guests</label>
@@ -228,6 +234,7 @@
             </div>
         </section>
 
+        
         <!-- Registry -->
         <section id="registry" class="registry container">
             <h2>Gift Registry</h2>
@@ -264,13 +271,13 @@
     <div id="modal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1">
         <div id="modalBackdrop" class="modal-backdrop" aria-hidden="true"></div>
         <button id="modalClose" class="modal-close" aria-label="Close">×</button>
-            <button id="modalPrev" class="modal-nav modal-prev" aria-label="Previous image">‹</button>
-            <button id="modalNext" class="modal-nav modal-next" aria-label="Next image">›</button>
-            <div class="modal-inner">
-                <img id="modalImage" src="" alt="Expanded photo">
-                <div id="modalCaption" class="modal-caption" aria-live="polite"></div>
-            </div>
-    </div> 
+        <button id="modalPrev" class="modal-nav modal-prev" aria-label="Previous image">‹</button>
+        <button id="modalNext" class="modal-nav modal-next" aria-label="Next image">›</button>
+        <div class="modal-inner">
+            <img id="modalImage" src="" alt="Expanded photo">
+            <div id="modalCaption" class="modal-caption" aria-live="polite"></div>
+        </div>
+    </div>
 
     <!-- swiper js link -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
