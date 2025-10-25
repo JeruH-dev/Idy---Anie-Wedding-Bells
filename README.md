@@ -62,3 +62,59 @@ A modern, elegant **wedding website** built with **React**, featuring:
 
 
         Your site will be available at http://localhost:5173/
+
+## 📬 RSVP System Overview
+
+<ol> 
+    <li>The RSVP system uses:
+    </li>
+    <li>Formspree to collect responses from the frontend securely.
+    </li>
+    <li>EmailJS to automatically send a confirmation message and code to guests.
+    <li>
+    <li>Example Workflow:
+    <li>
+    <li>Guest fills out the RSVP form (RSVPForm.jsx).
+    <li>
+    <li>Formspree handles submission and stores guest info.
+    <li>
+    <li>EmailJS sends a customized auto-reply with their confirmation code.
+    <li>
+    <li>The system logs RSVPs locally via localStorage as a backup.
+    </li>
+</ol>
+
+
+## 📸 Screenshots
+    Landing Page	RSVP Section	Confirmation
+
+	
+	
+## 🤝 Contributing
+
+    Pull requests are welcome!
+    For major changes, please open an issue first to discuss what you’d like to change.
+
+## 👨🏾‍💻 Author
+
+    Gideon Efiakedoho
+    🌐 GitHub | 💼 LinkedIn | 🕹️ @JeruH_Dev
+
+## 🕊️ License
+
+    This project is licensed under the MIT License — you’re free to use, modify, and share it.
+
+## 💬 Acknowledgements
+
+    Special thanks to:
+
+    Formspree
+    for the seamless backend form handling
+
+    EmailJS
+    for making automated love letters easy
+
+    The couple, Idy & Anie, for inspiring this project 💖
+
+    🎉 “Made with Love, Code, and Forever Vibes” 💍
+
