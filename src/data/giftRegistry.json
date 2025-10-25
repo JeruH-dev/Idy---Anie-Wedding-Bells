@@ -1,30 +1,42 @@
 {
     "title": "Our Gift Registry",
-    "subtitle": "Your presence is the greatest gift — but if you’d like to bless us more, here are a few options ❤️",
+    "subtitle": "Your presence is the greatest gift — but if you’d like to bless us more, here are a few thoughtful options ❤️",
     "registry": [
         {
+            "id": "gift01",
             "name": "Amazon Wedding Registry",
-            "description": "Shop our wish list directly on Amazon — everything ships straight to us.",
+            "description": "Shop our curated wish list directly on Amazon — every item is shipped straight to us with love.",
             "url": "https://www.amazon.com/wedding",
-            "icon": "amazon"
+            "icon": "amazon",
+            "category": "Online Store",
+            "image": "/images/gifts/amazon.png"
         },
         {
+            "id": "gift02",
             "name": "Cash Gift",
-            "description": "Prefer to send a cash gift? Use our secured payment link below.",
+            "description": "Prefer to send a cash gift? You can use our secure Paystack payment link below. Every token is deeply appreciated 💕",
             "url": "https://paystack.com/pay/idy-anie-wedding",
-            "icon": "credit-card"
+            "icon": "credit-card",
+            "category": "Monetary Gift",
+            "image": "/images/gifts/paystack.png"
         },
         {
+            "id": "gift03",
             "name": "Bank Transfer",
-            "description": "Account Name: Idongesit Efiakedoho\nBank: Zenith Bank Nigeria Plc\nAcct No: 1234567890",
+            "description": "Account Name: Idongesit Efiakedoho\nBank: Zenith Bank Nigeria Plc\nAccount Number: 1234567890",
             "url": "",
-            "icon": "bank"
+            "icon": "bank",
+            "category": "Bank Transfer",
+            "image": "/images/gifts/zenith.png"
         },
         {
+            "id": "gift04",
             "name": "Jumia Gift Store",
-            "description": "Support us by buying household essentials we’ve added to our Jumia list.",
+            "description": "Support us by purchasing household essentials we’ve added to our Jumia store — practical and appreciated!",
             "url": "https://www.jumia.com.ng",
-            "icon": "gift"
+            "icon": "gift",
+            "category": "Online Store",
+            "image": "/images/gifts/jumia.png"
         }
     ]
 }
