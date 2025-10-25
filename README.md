@@ -1,32 +1,64 @@
-# Wedding Bells — Static Site
+# 💒 Idy & Anie Wedding Bells — RSVP & Gift Registry Website
 
-This is a small responsive static wedding site scaffold. It includes:
+A modern, elegant **wedding website** built with **React**, featuring:
+- A responsive layout for guests to view wedding details  
+- **RSVP form integration** with **Formspree** for submission management  
+- **EmailJS auto-reply system** for guest confirmation  
+- A personalized **gift registry** and contact section  
 
-- Hero / cover section
-- Bride & groom social links
-- Integrated Google Maps embed for venue
-- Event timeline
-- Photo gallery with modal
-- Bridesmaids / groomsmen section
-- Love story
-- Video section
-- Event countdown
-- Add to Google Calendar and .ics download
-- Simple RSVP form (stores locally in localStorage)
-- Gift registry links
+---
 
-How to preview locally:
+## ✨ Features
 
-Open `index.html` in your browser. For best results use a local server (recommended):
+✅ Elegant wedding design with soft Sage Green theme  
+✅ RSVP form with instant confirmation code  
+✅ Formspree backend for message handling  
+✅ EmailJS integration for automatic confirmation emails  
+✅ Gift registry section with external store links  
+✅ Responsive design for all devices  
+✅ LocalStorage fallback to store guest data (if offline)
 
-On Windows PowerShell, run:
+---
 
-```powershell
-# from the project root
-python -m http.server 8000
-# then open http://localhost:8000 in your browser
-```
+## 🧠 Tech Stack
 
-Notes:
-- Replace placeholder images in `Images/` with your real photos.
-- Update social links, map coordinates, and event datetime in `index.html` and `js/main.js`.
+| Category | Technology |
+|-----------|-------------|
+| Frontend  | React (Vite or CRA setup) |
+| Styling   | TailwindCSS / CSS3 |
+| Backend (Form) | [Formspree](https://formspree.io/) |
+| Email Automation | [EmailJS](https://www.emailjs.com/) |
+| Deployment | Vercel / Netlify |
+| Data Config | JSON files (rsvpConfig.json) |
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/JeruH-dev/Idy---Anie-Wedding-Bells.git
+   cd Idy---Anie-Wedding-Bells
+
+2. **Install Dependencies**
+
+    npm install
+
+
+3. **Create Config File**
+    Inside src/data/, create a file called rsvpConfig.json:
+
+        {
+        "formspreeURL": "https://formspree.io/f/YOUR_FORM_ID",
+        "emailjsServiceId": "YOUR_SERVICE_ID",
+        "emailjsTemplateId": "YOUR_TEMPLATE_ID",
+        "emailjsPublicKey": "YOUR_PUBLIC_KEY"
+        }
+
+
+4. **Run Development Server**
+
+        npm run dev
+
+
+        Your site will be available at http://localhost:5173/
