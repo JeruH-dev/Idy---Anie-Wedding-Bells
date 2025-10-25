@@ -1,5 +1,8 @@
 import GiftRegistry from "./components/GiftRegistry";
 
+import emailjs from "@emailjs/browser";
+emailjs.init("w11ZYMu5hFqunLeiC"); // 🔑 From EmailJS dashboard
+
 function App() {
     return (
         <>

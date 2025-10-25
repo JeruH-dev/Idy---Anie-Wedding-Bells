@@ -1,4 +1,10 @@
 {
+    "formspreeURL": "https://formspree.io/f/myznqvoz",
+    "emailjsServiceId": "service_qam3cm2",
+    "emailjsTemplateId": "template_gyiinzi",
+    "emailjsPublicKey": "w11ZYMu5hFqunLeiC",
+
+
     "formspreeEndpoint": "https://formspree.io/f/myznqvoz",
     "fields": {
         "name": {

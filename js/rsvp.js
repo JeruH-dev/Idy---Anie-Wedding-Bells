@@ -1,11 +1,12 @@
+/*
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 (function () {
     emailjs.init("w11ZYMu5hFqunLeiC");
 })();
 
-(function () {
-    // ==== CONFIG ====
+
+ /*   // ==== CONFIG ====
     const FORMSPREE_ENDPOINT = "https://formspree.io/f/myznqvoz"; // your endpoint
     const EMAILJS_USER_ID = "w11ZYMu5hFqunLeiC";          // from EmailJS dashboard
     const EMAILJS_SERVICE_ID = "service_kwlx9q9";    // e.g. service_xxx
@@ -66,7 +67,7 @@
             btn.textContent = "Submit RSVP";
         }
     });
-})();
+})();*/
 /*
 // RSVP form handling with Formspree + EmailJS confirmation
 const rsvpForm = document.getElementById('rsvpForm');
@@ -127,3 +128,108 @@ if (rsvpForm) {
         rsvpForm.reset();
     });
 }*/
+
+/* Initialize EmailJS (before your main script) */
+(function () {
+    emailjs.init({
+        publicKey: "w11ZYMu5hFqunLeiC" // 🔑 From EmailJS dashboard
+    });
+})();
+
+
+// RSVP form handling with Formspree + EmailJS
+const rsvpForm = document.getElementById('rsvpForm');
+const rsvpConfirmation = document.getElementById('rsvpConfirmation');
+const confirmText = document.getElementById('confirmText');
+
+if (rsvpForm) {
+    rsvpForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Gather data
+        const data = new FormData(rsvpForm);
+        const obj = {};
+        data.forEach((v, k) => (obj[k] = v));
+
+        // Generate confirmation code
+        const confirmationCode = 'IDY&ANIE-' + Date.now().toString(36).toUpperCase();
+        obj.confirmation_code = confirmationCode;
+        data.append('confirmation_code', confirmationCode);
+
+        try {
+            // 1️⃣ Send data to Formspree
+            const response = await fetch(rsvpForm.action, {
+                method: rsvpForm.method,
+                body: data,
+                headers: { Accept: 'application/json' },
+            });
+
+            if (response.ok) {
+                // 2️⃣ Show confirmation on screen
+                confirmText.textContent = `Your RSVP was received 🎉\nConfirmation Code: ${confirmationCode}`;
+                rsvpConfirmation.classList.remove('hidden');
+                rsvpForm.classList.add('hidden');
+
+                // 3️⃣ Send confirmation email via EmailJS
+                await emailjs.send('service_qam3cm2', 'template_gyiinzi', {
+                    to_email: obj.email,
+                    from_name: 'Idy & Anie Wedding Bells 💍',
+                    guest_name: obj.name || 'Guest',
+                    num_guests: obj.guests || '1',
+                    confirmation_code: confirmationCode,
+                });
+
+                console.log('✅ Confirmation email sent successfully to', obj.email);
+
+                // 4️⃣ Save locally (for your record)
+                const saved = JSON.parse(localStorage.getItem('rsvps') || '[]');
+                saved.push(obj);
+                localStorage.setItem('rsvps', JSON.stringify(saved));
+            } else {
+                alert('😕 Oops! Something went wrong while submitting your RSVP. Please try again.');
+            }
+        } catch (err) {
+            console.error('❌ Error:', err);
+            alert('There was an issue sending your confirmation email. Please try again later.');
+        }
+
+        // 5️⃣ Reset the form
+        rsvpForm.reset();
+    });
+}
+
+/* 🎊 Confetti Animation */
+function launchConfetti() {
+    const duration = 5 * 1000;
+    const end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 },
+        });
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 },
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    })();
+}
+
+// Launch confetti when confirmation box is shown
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.target.classList.contains('hidden')) {
+            launchConfetti();
+        }
+    });
+});
+
+observer.observe(rsvpConfirmation, { attributes: true });   
